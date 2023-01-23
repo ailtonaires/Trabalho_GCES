@@ -9,5 +9,9 @@ services:
             - MONGO_INITDB_ROOT_PASSWORD=lappis
         ports:
             - '27017:27017'
-    
+    app:
+       container_name: application
+       build: .
+       depends_on:
+           - db
  
