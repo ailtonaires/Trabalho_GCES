@@ -4,7 +4,7 @@ version = "0.2.0"
 description = ""
 authors = ["Ailton Aires <ailtonaires5@gmail.com>"]
 readme = "README.md"
-packages = [{include = "trabalho_gces"}]
+packages = [{include = "src/"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
