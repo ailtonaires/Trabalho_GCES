@@ -6,7 +6,23 @@ on:
     
     
 jobs:
-  publish-service-client-package:
+  run-tests-with-poetry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup python 3.8 enviroment
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+      - name: Setup poetry
+        uses: Gr1N/setup-poetry@v8
+      - run: poetry install
+      - run: poetry build
+      - run: poetry run pytest tests/
+      
+  publish-package:
     runs-on: ubuntu-20.04
     permissions:
       contents: write
@@ -19,6 +35,6 @@ jobs:
         with:
           python-version: 3.8.10
           poetry-version: 1.3.1
-          username: "__token__"
-          password: "pypi-AgEIcHlwaS5vcmcCJDgyOTk4YmFiLWI5MWYtNDkwNS1iNjQwLTUwMzQyN2FmNDI1OQACKlszLCJhNGE4MDJjOC01MTZhLTQyMTktYjdlNi1hYjY2OTc2ZDc3MmEiXQAABiCkHqBWKns4HEVS-JscNc1Ic8e99pDXHHTH6rSFwsySDw"
-          build: true
+          username: ${{ secrets.PYPI_USERNAME }}
+          password: ${{ secrets.PYPI_PASSWORD }}
+
