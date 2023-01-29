@@ -19,6 +19,6 @@ jobs:
         with:
           python-version: 3.8.10
           poetry-version: 1.3.1
-          username: ${{ secrets.PYPI_USERNAME }}
-          password: ${{ secrets.PYPI_PASSWORD }}
+          username: "__token__"
+          password: "pypi-AgEIcHlwaS5vcmcCJDgyOTk4YmFiLWI5MWYtNDkwNS1iNjQwLTUwMzQyN2FmNDI1OQACKlszLCJhNGE4MDJjOC01MTZhLTQyMTktYjdlNi1hYjY2OTc2ZDc3MmEiXQAABiCkHqBWKns4HEVS-JscNc1Ic8e99pDXHHTH6rSFwsySDw"
           build: true
